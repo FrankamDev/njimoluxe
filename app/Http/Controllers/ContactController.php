@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\Contact;
+use App\Mail\ContactMail;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -28,7 +31,26 @@ class ContactController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    $validated = $request->validate([
+      'name' => 'required|string|max:255',
+      'email' => 'required|email|max:255',
+      'phone' => 'required|string|max:20',
+      'city' => 'nullable|string|max:255',
+      'project_type' => 'required|string|max:255',
+      'message' => 'required|string',
+      'urgent' => 'boolean',
+    ]);
+
+    $contact = Contact::create($validated);
+
+    // Send email to admin (configure recipient in .env later)
+    try {
+      \Illuminate\Support\Facades\Mail::to('njimoluxe@gmail.com')->send(new ContactMail($contact));
+    } catch (\Exception $e) {
+      // Log error or handle gracefully
+    }
+
+    return redirect()->back()->with('success', 'Votre message a bien été envoyé !');
   }
 
   /**

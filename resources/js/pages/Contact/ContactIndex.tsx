@@ -38,9 +38,9 @@ export default function ContactIndex() {
   return (
     <>
       <Head title="Contactez Ndjimolux – Menuiserie sur mesure à Yaoundé" />
-      <NavBar />
 
       <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 bg-gradient-to-br from-gray-950 via-black to-emerald-950/70 overflow-hidden">
+        <NavBar />
         <div
           className="absolute inset-0 opacity-[0.07] bg-cover bg-center mix-blend-overlay pointer-events-none"
           style={{ backgroundImage: "url('/images/wood-atelier-bg.jpg')" }}
