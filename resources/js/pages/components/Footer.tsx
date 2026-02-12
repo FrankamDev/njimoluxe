@@ -37,7 +37,7 @@ export default function Footer() {
               Menuiserie d’exception à Douala.
               Création sur mesure, finitions soignées, bois nobles et engagement qualité depuis 2010.
             </p>
-            <div className="bg-red-500">
+            <div className="bg-red-400">
 
               <Icons links={{
 
