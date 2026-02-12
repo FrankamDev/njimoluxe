@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit3c79e040a3570288a4004f205416801a
+class ComposerStaticInit0c9fdc24f7830642fd4596ff16b71366
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -7563,6 +7563,7 @@ class ComposerStaticInit3c79e040a3570288a4004f205416801a
         'Psy\\Output\\PassthruPager' => __DIR__ . '/..' . '/psy/psysh/src/Output/PassthruPager.php',
         'Psy\\Output\\ProcOutputPager' => __DIR__ . '/..' . '/psy/psysh/src/Output/ProcOutputPager.php',
         'Psy\\Output\\ShellOutput' => __DIR__ . '/..' . '/psy/psysh/src/Output/ShellOutput.php',
+        'Psy\\Output\\ShellOutputAdapter' => __DIR__ . '/..' . '/psy/psysh/src/Output/ShellOutputAdapter.php',
         'Psy\\Output\\Theme' => __DIR__ . '/..' . '/psy/psysh/src/Output/Theme.php',
         'Psy\\ParserFactory' => __DIR__ . '/..' . '/psy/psysh/src/ParserFactory.php',
         'Psy\\ProjectTrust' => __DIR__ . '/..' . '/psy/psysh/src/ProjectTrust.php',
@@ -9314,10 +9315,10 @@ class ComposerStaticInit3c79e040a3570288a4004f205416801a
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit3c79e040a3570288a4004f205416801a::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit3c79e040a3570288a4004f205416801a::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit3c79e040a3570288a4004f205416801a::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit3c79e040a3570288a4004f205416801a::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit0c9fdc24f7830642fd4596ff16b71366::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit0c9fdc24f7830642fd4596ff16b71366::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit0c9fdc24f7830642fd4596ff16b71366::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit0c9fdc24f7830642fd4596ff16b71366::$classMap;
 
         }, null, ClassLoader::class);
     }
