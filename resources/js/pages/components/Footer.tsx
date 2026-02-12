@@ -37,15 +37,18 @@ export default function Footer() {
               Menuiserie d’exception à Douala.
               Création sur mesure, finitions soignées, bois nobles et engagement qualité depuis 2010.
             </p>
+            <div className="bg-red-500">
 
-            <Icons links={{
-              whatsapp: "https://wa.me/237695748384",
-              facebook: "https://facebook.com/njimoluxe",
-              instagram: "https://instagram.com/njimoluxe",
-              telegram: "https://t.me/njimoluxe",
-              twitter: "https://x.com/njimoluxe",
-              linkedin: "https://linkedin.com/in/njimoluxe",
-            }} />
+              <Icons links={{
+
+                whatsapp: "https://wa.me/237695748384",
+                facebook: "https://facebook.com/njimoluxe",
+                instagram: "https://instagram.com/njimoluxe",
+                telegram: "https://t.me/njimoluxe",
+                twitter: "https://x.com/njimoluxe",
+                linkedin: "https://linkedin.com/in/njimoluxe",
+              }} />
+            </div>
           </motion.div>
 
           {/* Colonne 2 – Navigation rapide */}
