@@ -14,10 +14,9 @@ class BlogController extends Controller
    */
   public function index()
   {
-    $articles = Article::published()
-      ->with(['user', 'categories', 'tags'])
+    $articles = Article::with(['user', 'categories', 'tags'])
       ->orderByDesc('published_at')
-      ->paginate(9);
+      ->paginate(10);
 
     $categories = Category::withCount('articles')
       ->orderBy('name')
@@ -29,8 +28,8 @@ class BlogController extends Controller
 
       'urls' => [
         'blog_index'   => '/blog',
-        'blog_show'    => '/blog/',     // on concaténera slug côté front
-        'category_base' => '/blog/category/', // si filtre catégorie plus tard
+        'blog_show'    => '/blog/',
+        'category_base' => '/blog/category/',
       ],
     ]);
   }
@@ -40,8 +39,7 @@ class BlogController extends Controller
    */
   public function show(string $slug)
   {
-    $article = Article::published()
-      ->where('slug', $slug)
+    $article = Article::where('slug', $slug)
       ->with([
         'user',
         'categories',
@@ -55,7 +53,7 @@ class BlogController extends Controller
 
     // Articles similaires (même catégories, exclure l'article actuel)
     $similarArticles = Article::published()
-      ->where('id', '!=', $article->id)
+      ->where('slug', '!=', $article->slug)
       ->whereHas('categories', function ($q) use ($article) {
         $q->whereIn('categories.id', $article->categories->pluck('id'));
       })

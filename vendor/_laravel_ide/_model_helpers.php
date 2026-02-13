@@ -12,8 +12,9 @@ namespace App\Models {
    * @property string $content
    * @property string|null $excerpt
    * @property string $slug
+   * @property string|null $image
    * @property string $title
-   * @property int $user_id
+   * @property int|null $user_id
    * @property int $id
    * @property-read mixed $short_excerpt
    * @property-read \App\Models\User $user
@@ -26,6 +27,7 @@ namespace App\Models {
    * @method static \Illuminate\Database\Eloquent\Builder<Article>|Article whereId($value)
    * @method static \Illuminate\Database\Eloquent\Builder<Article>|Article whereUserId($value)
    * @method static \Illuminate\Database\Eloquent\Builder<Article>|Article whereTitle($value)
+   * @method static \Illuminate\Database\Eloquent\Builder<Article>|Article whereImage($value)
    * @method static \Illuminate\Database\Eloquent\Builder<Article>|Article whereSlug($value)
    * @method static \Illuminate\Database\Eloquent\Builder<Article>|Article whereExcerpt($value)
    * @method static \Illuminate\Database\Eloquent\Builder<Article>|Article whereContent($value)
