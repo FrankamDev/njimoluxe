@@ -226,11 +226,11 @@ export default function NavBar() {
               ))}
 
               <div className="pt-8 border-t border-green-900/40">
-                {auth.user ? (
+                {auth?.user ? (
                   <div className="space-y-5">
                     <div className="flex items-center gap-4 px-4 py-4 bg-green-950/30 rounded-2xl">
                       <div className="w-14 h-14 rounded-full bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center text-white text-2xl font-bold shadow-md">
-                        {auth.user.name.charAt(0).toUpperCase()}
+                        {auth?.user.name.charAt(0).toUpperCase()}
                       </div>
                       <div>
                         <p className="text-xl font-semibold text-white">{auth.user.name}</p>
