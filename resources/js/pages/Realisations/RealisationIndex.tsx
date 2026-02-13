@@ -28,21 +28,28 @@ import { Head } from "@inertiajs/react";
 
 
 const realisationsData = [
-  { id: 1, title: 'Cuisine moderne en bois', slug: 'cuisine-moderne', category: 'cuisine', image_url: '/r1.jpeg', description: 'Cuisine complète avec finitions premium.' },
-  { id: 2, title: 'Porte d\'entrée sculptée', slug: 'porte-entree', category: 'porte', image_url: '/r2.jpeg', description: 'Porte robuste et esthétique.' },
-  { id: 3, title: 'Escalier en chêne', slug: 'escalier-chene', category: 'escalier', image_url: '/r3.jpeg', description: 'Escalier sur mesure avec rampe.' },
-  { id: 4, title: 'Meuble TV design', slug: 'meuble-tv', category: 'meuble', image_url: '/r4.jpeg', description: 'Meuble multimédia intégré.' },
-  { id: 5, title: 'Agencement bureau', slug: 'agencement-bureau', category: 'agencement', image_url: '/r5.jpeg', description: 'Optimisation d\'espace professionnel.' },
-  { id: 6, title: 'Rénovation salon', slug: 'renovation-salon', category: 'renovation', image_url: '/r6.jpeg', description: 'Rénovation complète avec bois naturel.' },
-  { id: 7, title: 'Cuisine intégrée', slug: 'cuisine-integree', category: 'cuisine', image_url: '/r7.jpeg', description: 'Cuisine fonctionnelle et élégante.' },
-  { id: 8, title: 'Porte coulissante', slug: 'porte-coulissante', category: 'porte', image_url: '/r8.jpeg', description: 'Porte gain de place.' },
-  { id: 9, title: 'Escalier hélicoïdal', slug: 'escalier-helicoidal', category: 'escalier', image_url: '/r9.jpeg', description: 'Design moderne et compact.' },
-  { id: 10, title: 'Meuble de rangement', slug: 'meuble-rangement', category: 'meuble', image_url: '/r10.jpeg', description: 'Meuble polyvalent.' },
-  { id: 11, title: 'Agencement cuisine', slug: 'agencement-cuisine', category: 'agencement', image_url: '/r11.jpeg', description: 'Aménagement sur mesure.' },
-  { id: 12, title: 'Rénovation chambre', slug: 'renovation-chambre', category: 'renovation', image_url: '/r12.jpeg', description: 'Transformation totale.' },
-  // Ajoute plus d'images ici si nécessaire, ex:
-  // { id: 13, title: '...', slug: '...', category: '...', image_url: '/r13.jpeg', description: '...' },
+  { id: 1, title: "Porte d'entrée sculptée", slug: 'porte-entree', category: 'porte', image_url: '/portes.jpeg', description: 'Porte robuste et esthétique.' },
+  { id: 2, title: 'Escalier en chêne', slug: 'escalier-chene', category: 'escalier', image_url: '/r4.jpeg', description: 'Escalier sur mesure avec rampe.' },
+  { id: 3, title: 'Meuble TV design', slug: 'meuble-tv', category: 'meuble', image_url: '/5.jpeg', description: 'Meuble multimédia intégré.' },
+  { id: 4, title: 'Rénovation salon', slug: 'renovation-salon', category: 'renovation', image_url: '/r6.jpeg', description: 'Rénovation complète avec bois naturel.' },
+  { id: 5, title: 'Cuisine intégrée', slug: 'cuisine-integree', category: 'cuisine', image_url: '/cuisine.jpeg', description: 'Cuisine fonctionnelle et élégante.' },
+  // { id: 6, title: 'Porte coulissante', slug: 'porte-coulissante', category: 'porte', image_url: '/r8.jpeg', description: 'Porte gain de place.' },
+  { id: 7, title: 'Meuble de rangement 1', slug: 'meuble-rangement-1', category: 'meuble', image_url: '/r13.jpeg', description: 'Meuble polyvalent.' },
+  { id: 8, title: 'Rénovation chambre', slug: 'renovation-chambre', category: 'renovation', image_url: '/r12.jpeg', description: 'Transformation totale.' },
+  { id: 9, title: 'Meuble de rangement 2', slug: 'meuble-rangement-2', category: 'meuble', image_url: '/3.jpeg', description: 'Meuble polyvalent.' },
+  { id: 10, title: 'Meuble de rangement 3', slug: 'meuble-rangement-3', category: 'meuble', image_url: '/r12.jpeg', description: 'Meuble polyvalent.' },
+  { id: 11, title: 'Meuble de rangement 4', slug: 'meuble-rangement-4', category: 'meuble', image_url: '/r31.jpeg', description: 'Meuble polyvalent.' },
+  { id: 12, title: 'Meuble de rangement 5', slug: 'meuble-rangement-5', category: 'meuble', image_url: '/r25.jpeg', description: 'Meuble polyvalent.' },
+  { id: 13, title: 'Meuble de rangement 6', slug: 'meuble-rangement-6', category: 'meuble', image_url: '/r27.jpeg', description: 'Meuble polyvalent.' },
+  { id: 14, title: 'Rénovation salon 2', slug: 'renovation-salon-2', category: 'renovation', image_url: '/r2.jpeg', description: 'Rénovation complète avec bois naturel.' },
+  { id: 15, title: 'Meuble de rangement 7', slug: 'meuble-rangement-7', category: 'meuble', image_url: '/r21.jpeg', description: 'Meuble polyvalent.' },
+  { id: 16, title: 'Meuble de rangement 8', slug: 'meuble-rangement-8', category: 'meuble', image_url: '/r20.jpeg', description: 'Meuble polyvalent.' },
+  { id: 17, title: 'Meuble de rangement 9', slug: 'meuble-rangement-9', category: 'meuble', image_url: '/r14.jpeg', description: 'Meuble polyvalent.' },
+  { id: 18, title: 'Meuble de rangement 10', slug: 'meuble-rangement-10', category: 'meuble', image_url: '/r9.jpeg', description: 'Meuble polyvalent.' },
+  { id: 19, title: 'Meuble de rangement 11', slug: 'meuble-rangement-11', category: 'meuble', image_url: '/r8.jpeg', description: 'Meuble polyvalent.' },
+  { id: 20, title: 'Meuble de rangement 12', slug: 'meuble-rangement-12', category: 'meuble', image_url: '/r7.jpeg', description: 'Meuble polyvalent.' },
 ];
+
 
 export default function RealisationIndex() {
 
