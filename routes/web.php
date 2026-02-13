@@ -27,7 +27,6 @@ Route::get('/blog/image/{filename}', function ($filename) {
   return response()->file(storage_path('app/public/blog/' . $filename));
 })->name('blog.image');
 
-
 Route::get('/blog/{slug}', [BlogController::class, 'show'])
   ->name('blog.show');
 

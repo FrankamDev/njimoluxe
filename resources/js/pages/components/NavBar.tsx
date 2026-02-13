@@ -111,7 +111,7 @@ export default function NavBar() {
           {/* Actions */}
           <div className="flex items-center gap-5">
             <div className="hidden lg:flex items-center gap-6">
-              {auth.user ? (
+              {auth?.user ? (
                 <div className="relative" ref={userMenuRef}>
                   <button
                     type="button"
@@ -119,9 +119,9 @@ export default function NavBar() {
                     className="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-green-950/40 transition-all duration-200"
                   >
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center text-white font-bold shadow-md">
-                      {auth.user.name.charAt(0).toUpperCase()}
+                      {auth?.user.name.charAt(0).toUpperCase()}
                     </div>
-                    <span className="font-medium text-gray-100">{auth.user.name}</span>
+                    <span className="font-medium text-gray-100">{auth?.user.name}</span>
                     <ChevronDown
                       size={18}
                       className={`transition-transform duration-200 ${userMenuOpen ? 'rotate-180' : ''}`}

@@ -54,7 +54,7 @@ export default function WhatsApp() {
   const [message, setMessage] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const phoneNumber = '+237690461830';
+  const phoneNumber = '+237695748384';
   const welcomeMessage = "Bonjour ! 👋 Comment puis-je vous aider aujourd'hui ?";
 
   const handleSend = () => {
