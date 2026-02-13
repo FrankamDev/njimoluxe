@@ -77,10 +77,10 @@ export default function RealisationIndex() {
 
   return (
     <>
+      <NavBar />
       <Head title="Nos Réalisations – Ndjimolux Menuiserie Yaoundé" />
 
       <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-gray-950 via-black to-emerald-950/70">
-        <NavBar />
         <div className="absolute inset-0 opacity-10 bg-[url('/images/wood-texture-dark.jpg')] bg-cover mix-blend-overlay pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6  text-center">
           <motion.h1
