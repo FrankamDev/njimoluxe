@@ -130,7 +130,7 @@ export default function BlogIndex({ articles, urls }) {
         <Navbar />
         <div className="py-28">
 
-          <div className="w-full py-10 text-center border-b border-green-900/30 flex-shrink-0">
+          <div className="w-full py-10 text-center border-b border-green-900/30 flex-shrink-0">\
             <h1 className="text-4xl font-bold">Blog NJIMOLUXE</h1>
             <p className="mt-2 text-green-300/80">Inspirations et tendances du moment</p>
           </div>
