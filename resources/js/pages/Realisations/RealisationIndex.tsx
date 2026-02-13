@@ -82,7 +82,7 @@ export default function RealisationIndex() {
       <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-gray-950 via-black to-emerald-950/70">
         <NavBar />
         <div className="absolute inset-0 opacity-10 bg-[url('/images/wood-texture-dark.jpg')] bg-cover mix-blend-overlay pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6  text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -120,7 +120,7 @@ export default function RealisationIndex() {
 
       {/* Filtres sticky – exactement comme avant */}
       <div className="sticky top-0 z-20 bg-black/95 backdrop-blur-lg border-b border-emerald-900/40 py-5">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 overflow-x-auto">
+        <div className="max-w-7xl px-5 sm:px-6 lg:px-8 overflow-x-auto">
           <div className="flex gap-3 sm:gap-4 justify-center min-w-max">
             {categories.map(cat => (
               <button
@@ -143,7 +143,7 @@ export default function RealisationIndex() {
         <h2 className='text-white text-center text-2xl font-bold '>Cliquer pour agrandir l'image</h2>
       </div>
       <section className="py-10 md:py-16 bg-black">
-        <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1800px]  px-4 sm:px-6 lg:px-8">
           <LightGallery
             speed={500}
             plugins={[lgThumbnail, lgZoom, lgRotate, lgShare, lgAutoplay, lgFullscreen]}

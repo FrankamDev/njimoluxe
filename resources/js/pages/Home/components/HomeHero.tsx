@@ -1,6 +1,8 @@
-import { Head, Link } from '@inertiajs/react';
+import { Head, Link, usePage } from '@inertiajs/react';
 import { motion, AnimatePresence } from 'framer-motion'; // Assure-toi d'installer framer-motion: npm install framer-motion
 import { useState } from 'react';
+import Navbar from '@/pages/components/NavBar';
+import NavBar from '@/pages/components/NavBar';
 
 export default function HomeHero() {
   const fadeIn = {
@@ -10,12 +12,13 @@ export default function HomeHero() {
   const staggerChildren = {
     visible: { transition: { staggerChildren: 0.2 } },
   };
-
+  const { auth } = usePage().props;
   return (
     <section className="relative min-h-screen flex items-center bg-gradient-to-br from-gray-900 via-black to-green-950 pt-20 overflow-hidden">
       {/* Texture bois overlay */}
       <div className="absolute inset-0 opacity-20 bg-[url('/images/wood-texture.jpg')] bg-cover bg-center mix-blend-multiply pointer-events-none"></div>
 
+      <NavBar />
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-24 md:py-32">
         <motion.div
           initial="hidden"
@@ -25,7 +28,7 @@ export default function HomeHero() {
           className="grid md:grid-cols-2 gap-12 items-center"
         >
           <motion.div variants={fadeIn}>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-extrabold text-green-400 leading-none tracking-tight">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-extrabold text-green-500 leading-none tracking-tight">
               NJIMOLUXE
               <span className="block text-green-500 mt-4">Artisanat du Bois</span>
             </h1>
@@ -35,14 +38,15 @@ export default function HomeHero() {
             <div className="md:mt-4 flex flex-col sm:flex-row gap-6">
               <Link
                 prefetch
-                href="/devis"
-                className="inline-flex items-center justify-center px-10 py-5 bg-green-700 hover:bg-green-600 text-white text-lg font-sans font-bold rounded-[7px] transition-all duration-500 shadow-2xl hover:shadow-green-700/50 transform hover:scale-105"
+                href="/contact"
+                className="inline-flex items-center justify-center py-4 md:py-2 px-6 bg-green-700 hover:bg-green-600 text-white text-lg font-sans font-bold rounded-[4px] transition-all duration-500 shadow-2xl hover:shadow-green-700/50 transform hover:scale-105"
               >
                 Devis Gratuit
               </Link>
               <Link
+                prefetch
                 href="/realisations"
-                className="inline-flex items-center justify-center px-10 py-5 border-2 border-green-600 text-green-400 hover:bg-green-900/40 hover:text-green-300 text-lg font-sans font-bold rounded-[7px] transition-all duration-500"
+                className="inline-flex items-center justify-center px-10 py-5 border-2 border-green-600 text-green-400 hover:bg-green-900/40 hover:text-green-300 text-lg font-sans font-bold rounded-[4px] transition-all duration-500"
               >
                 Nos Réalisations
               </Link>

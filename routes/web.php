@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DevisController;
 use App\Http\Controllers\HomeController;
@@ -20,6 +21,7 @@ Route::get('/contact', [ContactController::class, 'index'])
   ->name('contact.index');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
+Route::post('/api/chat', [ChatController::class, 'handle'])->name('chat.handle');
 
 Route::get('/blog/image/{filename}', function ($filename) {
   return response()->file(storage_path('app/public/blog/' . $filename));

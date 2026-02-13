@@ -1,4 +1,5 @@
-import { Head } from "@inertiajs/react";
+import { Head, usePage } from "@inertiajs/react";
+import WhatsApp from "@/components/Whatsapp";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import HomeCTA from "./components/HomeCTA";
@@ -7,16 +8,19 @@ import HomeRealisations from "./components/HomeRealisations";
 import HomeServices from "./components/HomeServices";
 
 export default function HomeIndex() {
-
   return (
-    <div className="">
+    <div>
       <Head title="Njimoluxe - Menuiserie d'Excellence à Yaoundé" />
-      <meta name="description" content="Njimoluxe : Spécialiste en menuiserie sur mesure à Yaoundé. Meubles, cuisines, portes, escaliers en bois noble. Qualité artisanale et finitions impeccables." />
-      <NavBar />
+      <meta
+        name="description"
+        content="Njimoluxe : Spécialiste en menuiserie sur mesure à Yaoundé. Meubles, cuisines, portes, escaliers en bois noble. Qualité artisanale et finitions impeccables."
+      />
+
       <HomeHero />
       <HomeServices />
       <HomeRealisations />
       <HomeCTA />
+      <WhatsApp />
       <Footer />
     </div>
   )

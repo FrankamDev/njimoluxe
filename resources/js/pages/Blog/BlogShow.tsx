@@ -1,102 +1,10 @@
-// import { Head, Link } from '@inertiajs/react';
-// import GuestLayout from '@/layouts/GuestLayout';
-// import './blog.css';
-// export default function BlogShow({ article, similar, urls }) {
-//   return (
-//     // <GuestLayout>
-//     <div className="bg-black">
-
-//       <Head title={article.title} />
-
-//       <div className="w-full min-h-screen bg-black text-white flex flex-col py-16">
-//         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
-//           {/* Retour */}
-//           <Link
-//             href={urls.blog_index}
-//             className="inline-flex items-center text-green-400 hover:text-green-600 mb-6"
-//           >
-//             ← Retour au blog
-//           </Link>
-
-//           {/* Titre */}
-//           <h1 className="text-4xl sm:text-5xl font-bold mb-4 leading-tight truncate">
-//             {article.title}
-//           </h1>
-
-//           {/* Auteur & date */}
-//           <div className="flex flex-wrap items-center gap-3 text-green-300 text-sm mb-8">
-//             <span>Par {article.user?.name || 'Équipe NJIMOLUXE'}</span>
-//             <span>•</span>
-//             <time>
-//               {new Date(article.published_at).toLocaleDateString('fr-FR', {
-//                 year: 'numeric',
-//                 month: 'long',
-//                 day: 'numeric',
-//               })}
-//             </time>
-//           </div>
-
-//           {/* Catégories & tags */}
-//           <div className="flex flex-wrap gap-2 mb-10">
-//             {article.categories.map((cat) => (
-//               <span
-//                 key={cat.id}
-//                 className="px-3 py-1 bg-green-950/50 text-green-300 rounded-full text-xs font-medium"
-//               >
-//                 {cat.name}
-//               </span>
-//             ))}
-//             {article.tags.map((tag) => (
-//               <span
-//                 key={tag.id}
-//                 className="px-3 py-1 bg-gray-800/50 text-gray-300 rounded-full text-xs font-medium"
-//               >
-//                 #{tag.name}
-//               </span>
-//             ))}
-//           </div>
-
-//           {/* Contenu */}
-//           <div
-//             className="rich-content prose prose-lg text-white max-w-none mb-16"
-//             dangerouslySetInnerHTML={{ __html: article.content }}
-//           />
-
-//           {/* Articles similaires */}
-//           {similar && similar.length > 0 && (
-//             <div className="mt-20">
-//               <h2 className="text-3xl font-bold mb-6">Vous aimerez aussi</h2>
-//               <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6">
-//                 {similar.map((sim) => (
-//                   <Link
-//                     key={sim.id}
-//                     href={`${urls.blog_show}${sim.slug}`}
-//                     className="flex flex-col bg-gray-900 rounded-xl p-4 hover:bg-gray-800 transition"
-//                   >
-//                     <h3 className="text-lg font-semibold mb-2 truncate text-white hover:text-green-400">
-//                       {sim.title}
-//                     </h3>
-//                     <p className="text-slate-300 text-sm line-clamp-3">
-//                       {sim.excerpt || sim.short_excerpt || 'Découvrir l’article'}
-//                     </p>
-//                   </Link>
-//                 ))}
-//               </div>
-//             </div>
-//           )}
-//         </div>
-//       </div>
-//       {/* </GuestLayout> */}
-//     </div>
-//   );
-// }
-
 
 
 import { Head, Link } from '@inertiajs/react';
 import { useEffect, useState, useRef } from 'react';
-import GuestLayout from '@/layouts/GuestLayout';
+
 import './blog.css';
+import NavBar from '../components/NavBar';
 
 export default function BlogShow({ article, similar, urls }) {
   const [toc, setToc] = useState([]);
@@ -148,11 +56,14 @@ export default function BlogShow({ article, similar, urls }) {
   }, [toc]);
 
   return (
-    <GuestLayout>
+    <>
       <Head title={article.title} />
 
       <div className="bg-black min-h-screen text-white">
         <div className="flex flex-col lg:flex-row">
+
+          <NavBar />
+
           {/* Sommaire fixe à gauche sur desktop */}
           {toc.length > 0 && (
             <aside className="hidden lg:block lg:w-64 xl:w-72 flex-shrink-0 border-r border-green-900/30 bg-black/80 sticky top-0 h-screen overflow-y-auto py-12 px-6">
@@ -169,8 +80,8 @@ export default function BlogShow({ article, similar, urls }) {
                       document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
                     }}
                     className={`block py-1.5 transition-colors ${activeId === item.id
-                        ? 'text-green-400 font-medium pl-4 border-l-2 border-green-500'
-                        : 'text-slate-400 hover:text-green-300 pl-4'
+                      ? 'text-green-400 font-medium pl-4 border-l-2 border-green-500'
+                      : 'text-slate-400 hover:text-green-300 pl-4'
                       } ${item.level === 3 ? 'pl-8' : ''}`}
                   >
                     {item.text}
@@ -185,6 +96,7 @@ export default function BlogShow({ article, similar, urls }) {
             <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 py-12 lg:py-16">
               {/* Retour */}
               <Link
+                prefetch
                 href={urls.blog_index}
                 className="inline-flex items-center text-green-400 hover:text-green-300 mb-8 text-sm font-medium"
               >
@@ -298,8 +210,10 @@ export default function BlogShow({ article, similar, urls }) {
               )}
             </div>
           </main>
+
         </div>
       </div>
-    </GuestLayout>
+    </>
+
   );
 }
