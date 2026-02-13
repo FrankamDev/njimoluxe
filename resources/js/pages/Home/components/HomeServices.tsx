@@ -42,19 +42,19 @@ export default function HomeServices() {
               title: "Cuisines Sur Mesure",
               desc: "Conception ergonomique, matériaux résistants à l'humidité, intégration d'appareils high-tech. Styles : moderne, rustique, minimaliste.",
               icon: "🍳",
-              img: "1.jpeg"
+              img: "cuisine.jpeg"
             },
             {
               title: "Portes & Fenêtres",
               desc: "Isolation thermique et phonique, designs sécurisés, finitions anti-UV. Options : bois massif, vitrage double.",
               icon: "🚪",
-              img: "2.jpeg"
+              img: "portes.jpeg"
             },
             {
               title: "Escaliers & Balustrades",
               desc: "Structures solides, designs personnalisés (hélicoïdal, flottant). Matériaux : bois, métal, verre.",
               icon: "🪜",
-              img: "./3.jpeg"
+              img: "./1.jpeg"
             },
             {
               title: "Meubles Personnalisés",
