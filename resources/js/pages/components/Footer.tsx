@@ -32,9 +32,6 @@ export default function Footer() {
               </span>
 
             </Link>
-
-
-
             <p className="text-gray-400 leading-relaxed mb-6">
               Menuiserie d’exception à Douala.
               Création sur mesure, finitions soignées, bois nobles et engagement qualité depuis 2020.

@@ -1,101 +1,114 @@
-import { Head, Link } from "@inertiajs/react";
-import type { Pagination, Post } from "@/types";
-import NavBar from "../components/NavBar";
+import { Head, Link } from '@inertiajs/react';
+import GuestLayout from '@/layouts/GuestLayout'; // ou ta navbar publique
 
-export default function BlogIndex({ posts }: { posts: Pagination<Post> }) {
+export default function BlogIndex({ articles, categories, urls }) {
   return (
-    <>
-      <Head title="Blog" />
-      <NavBar />
-      <div className="min-h-screen mt-10 bg-black text-white">
-        <div className="max-w-7xl mx-auto px-6 py-16">
+    <GuestLayout>
+      <Head title="Blog - NJIMOLUXE" />
 
-          {/* Header */}
-          <div className="mb-14 text-center">
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-              Blog de Njimoluxe
+      <div className="py-16 bg-green-550 min-h-screen">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
+              Blog NJIMOLUXE
             </h1>
-            <div className="w-24 h-1 bg-green-500 mx-auto rounded-full"></div>
-            <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
-              Découvrez nos derniers articles, conseils et ressources.
+            <p className="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">
+              Tendances, inspirations et réalisations en décoration et ameublement haut de gamme
             </p>
           </div>
 
-          {/* Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            {posts.data.map((post) => (
+          {/* Catégories (cliquables mais sans filtre pour l'instant) */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {categories.map((cat) => (
               <Link
-                key={post.id}
-                href={`/blog/${post.slug}`}
-                className="group"
+                key={cat.id}
+                href={`${urls.category_base}${cat.slug}`} // futur filtre
+                className="px-5 py-2  border border-gray-200 rounded-full text-sm font-medium hover:bg-green-50 hover:border-green-200 transition-colors"
               >
-                <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl overflow-hidden transition duration-300 hover:border-green-500 hover:shadow-[0_0_30px_rgba(34,197,94,0.2)] h-full flex flex-col">
+                {cat.name} <span className="text-gray-500">({cat.articles_count})</span>
+              </Link>
+            ))}
+          </div>
 
-                  {/* Image */}
-                  {post.image_url && (
-                    <div className="overflow-hidden">
-                      <img
-                        src={post.image_url}
-                        alt={post.title}
-                        className="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500"
-                      />
-                    </div>
-                  )}
+          {/* Grille des articles */}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {articles.data.map((article) => (
+              <Link
+                key={article.id}
+                href={`${urls.blog_show}${article.slug}`}
+                className="group rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100"
+              >
+                {/* Placeholder image */}
+                <div className="aspect-[5/3] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                  <span className="text-gray-400 text-lg font-medium">Image à venir</span>
+                </div>
 
-                  {/* Content */}
-                  <div className="p-6 flex-1 flex flex-col">
-                    {post.category && (
-                      <span className="inline-block mb-3 text-xs font-semibold tracking-wider uppercase text-green-400">
-                        {post.category}
+                <div className="p-6">
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {article.categories.slice(0, 3).map((cat) => (
+                      <span
+                        key={cat.id}
+                        className="text-xs font-medium px-3 py-1  text-green-700 rounded-full"
+                      >
+                        {cat.name}
                       </span>
-                    )}
+                    ))}
+                  </div>
 
-                    <h2 className="text-xl font-bold mb-3 group-hover:text-green-400 transition">
-                      {post.title}
-                    </h2>
+                  <h2 className="text-xl font-bold text-gray-900 group-hover:text-green-700 transition-colors line-clamp-2">
+                    {article.title}
+                  </h2>
 
-                    <p className="text-gray-400 text-sm mb-6 leading-relaxed flex-1">
-                      {(post.excerpt ?? post.content ?? "").substring(0, 120) + "..."}
-                    </p>
-                    <div className="flex justify-between items-center text-xs text-gray-500 mt-auto">
-                      <span>{post.published_at}</span>
-                      <span className="text-green-400 font-semibold group-hover:underline">
-                        Lire →
-                      </span>
-                    </div>
+                  <p className="mt-3 text-gray-600 line-clamp-3 text-sm">
+                    {article.excerpt || article.short_excerpt || 'Aucun résumé disponible'}
+                  </p>
+
+                  <div className="mt-5 flex items-center text-sm text-gray-500">
+                    <span>Par {article.user?.name || 'Équipe NJIMOLUXE'}</span>
+                    <span className="mx-2">•</span>
+                    <time dateTime={article.published_at}>
+                      {new Date(article.published_at).toLocaleDateString('fr-FR', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </time>
                   </div>
                 </div>
               </Link>
             ))}
           </div>
 
-          {/* Pagination */}
-          {posts?.meta?.links && posts.meta.links.length > 3 && (
-            <div className="mt-16 flex justify-center space-x-2">
-              {posts.meta.links.map((link, key) => (
-                link.url ? (
+          {/* Pagination basique */}
+          {articles.links && articles.links.length > 3 && (
+            <div className="mt-12 flex justify-center gap-3 flex-wrap">
+              {articles.links.map((link, index) => {
+                if (!link.url) {
+                  return (
+                    <span
+                      key={index}
+                      className="px-5 py-2.5 bg-gray-100 text-gray-400 rounded-lg cursor-not-allowed"
+                      dangerouslySetInnerHTML={{ __html: link.label }}
+                    />
+                  );
+                }
+
+                return (
                   <Link
-                    key={key}
+                    key={index}
                     href={link.url}
-                    className={`px-4 py-2 border rounded-full text-sm font-medium transition duration-300 ${link.active
-                      ? "bg-green-600 border-green-600 text-white"
-                      : "border-gray-700 text-gray-400 hover:bg-white/10 hover:text-white"
+                    className={`px-5 py-2.5 rounded-lg font-medium transition-colors ${link.active
+                      ? 'bg-green-600 text-white'
+                      : 'bg-white border border-gray-300 hover:bg-gray-50'
                       }`}
                     dangerouslySetInnerHTML={{ __html: link.label }}
                   />
-                ) : (
-                  <span
-                    key={key}
-                    className="px-4 py-2 border border-gray-800 rounded-full text-sm font-medium text-gray-600 cursor-not-allowed"
-                    dangerouslySetInnerHTML={{ __html: link.label }}
-                  />
-                )
-              ))}
+                );
+              })}
             </div>
           )}
-
         </div>
       </div>
-    </>
+    </GuestLayout>
   );
 }
