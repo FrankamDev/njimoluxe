@@ -255,7 +255,7 @@ export default function ContactIndex() {
                     <button
                       type="submit"
                       disabled={processing}
-                      className={`w-full py-4 px-8 bg-emerald-700 hover:bg-emerald-600 text-white font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-emerald-800/40 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed ${processing ? 'animate-pulse' : ''
+                      className={`w-full py-4 px-8 bg-emerald-700 hover:bg-emerald-600 text-white font-semibold rounded transition-all duration-300 shadow-lg hover:shadow-emerald-800/40 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed ${processing ? 'animate-pulse' : ''
                         }`}
                     >
                       {processing ? 'Envoi en cours...' : 'Envoyer ma demande'}

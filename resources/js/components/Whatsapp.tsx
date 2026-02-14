@@ -111,9 +111,9 @@ export default function WhatsApp() {
             `}
           >
             {/* Header */}
-            <div className="bg-[#075E54] text-white px-5 py-4 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-green-700 flex items-center justify-center text-white font-bold">
-                N
+            <div className=" text-white px-5 py-4 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold">
+                <img src='./njimoluxe.png' />
               </div>
               <div>
                 <p className="font-medium">NJIMOLUXE</p>
