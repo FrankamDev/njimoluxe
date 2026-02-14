@@ -39,7 +39,6 @@ class ArticleForm
         FileUpload::make('image')
           ->image()
           ->disk('public')
-          ->directory('article')
           ->nullable(),
 
         Textarea::make('excerpt')

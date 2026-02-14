@@ -32,10 +32,11 @@ export default function HomeCTA() {
           Obtenez un devis personnalisé gratuit et découvrez comment nous pouvons sublimer votre intérieur.
         </motion.p>
         <Link
-          href="/devis"
+          prefetch
+          href="/contact"
           className="inline-flex items-center px-12 py-6 bg-white text-green-900 hover:bg-gray-100 font-sans font-bold text-xl rounded-[7px] shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-green-500/50"
         >
-          Demander Mon Devis
+          Demander Mon Devis Gratuit
         </Link>
       </div>
     </section>

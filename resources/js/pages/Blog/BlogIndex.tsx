@@ -33,9 +33,9 @@ export default function BlogIndex({ articles, urls }) {
                     <div className="aspect-[4/3] bg-black/60">
                       {article.image ? (
                         <img
-                          src={`/storage/article/${article.image}`}
+                          src={`/storage/${article.image}`}
                           alt={article.title}
-                          className="w-full h-full object-cover"
+                          className="w-full h-62 object-cover"
                           loading="lazy"
                         />
                       ) : (
