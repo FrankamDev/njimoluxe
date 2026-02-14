@@ -304,3 +304,8 @@ pre::-webkit-scrollbar-thumb {
   background: var(--color-accent);
   border-radius: 3px;
 }
+.blog-rich-content h2 { color: white; }
+.blog-rich-content h3 { color: #9ee6a0; }
+.blog-rich-content a { color: #22d3ee; text-decoration: none; }
+.blog-rich-content a:hover { text-decoration: underline; }
+.blog-rich-content blockquote { border-left: 3px solid #16a34a; color: #d1d5db; padding-left: 1rem; }

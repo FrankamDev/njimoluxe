@@ -17,10 +17,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 lg:gap-16">
           {/* Colonne 1 – Logo & courte description */}
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
-            <Link href="/" className="flex items-center gap-3 mb-6">
-
-
-
+            <Link prefetch href="/" className="flex items-center gap-3 mb-6">
 
 
               <div className="w-11 h-11 flex items-center justify-center text-white font-bold text-2xl shadow-md">
@@ -44,7 +41,7 @@ export default function Footer() {
               facebook: "https://facebook.com/njimoluxe",
               instagram: "https://instagram.com/njimoluxe",
               // telegram: "https://t.me/njimoluxe",
-              twitter: "https://x.com/njimoluxe",
+              // twitter: "https://x.com/njimoluxe",
               linkedin: "https://linkedin.com/in/njimoluxe",
             }} />
 
@@ -151,7 +148,7 @@ export default function Footer() {
               </div>
 
               <div className="flex items-start gap-3">
-                <span className="text-xl mt-0.5">💬</span>
+
                 <a
                   href="https://wa.me/+237695748384"
                   target="_blank"
@@ -165,7 +162,7 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <span className="text-xl mt-0.5">✉️</span>
                 <a
-                  href="mailto:contact@ndjimolux.cm"
+                  href="mailto:njimoluxe@gmail.com"
                   className="hover:text-emerald-400 transition-colors"
                 >
                   njimoluxe@gmail.com
@@ -176,7 +173,7 @@ export default function Footer() {
                 <span className="text-xl mt-0.5">📍</span>
                 <div>
                   <p>Rue des Artisans, Etoudi</p>
-                  <p>Douala – Cameroun</p>
+                  <p>Yaoundé – Cameroun</p>
                   <a
                     href="https://maps.google.com/?q=Etoudi+Yaounde"
                     target="_blank"

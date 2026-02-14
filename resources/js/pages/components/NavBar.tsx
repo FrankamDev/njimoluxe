@@ -30,7 +30,7 @@ const publicNavItems: NavItem[] = [
 ];
 
 export default function NavBar() {
-  // Sécurité maximale contre auth null / undefined
+
   const { auth } = usePage().props as { auth?: { user: AuthUser | null } | null };
 
   const [mobileOpen, setMobileOpen] = useState(false);

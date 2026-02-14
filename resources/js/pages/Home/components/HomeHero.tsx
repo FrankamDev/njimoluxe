@@ -1,8 +1,8 @@
 import { Head, Link, usePage } from '@inertiajs/react';
 import { motion, AnimatePresence } from 'framer-motion'; // Assure-toi d'installer framer-motion: npm install framer-motion
-import { useState } from 'react';
-import Navbar from '@/pages/components/NavBar';
-import NavBar from '@/pages/components/NavBar';
+
+
+import NavBar from '../../components/NavBar';
 
 export default function HomeHero() {
   const fadeIn = {
@@ -12,9 +12,10 @@ export default function HomeHero() {
   const staggerChildren = {
     visible: { transition: { staggerChildren: 0.2 } },
   };
-  const { auth } = usePage().props;
+
   return (
     <>
+      <Head title="Acceuil Ndjimolux – Menuiserie sur mesure à Yaoundé" />
       <NavBar />
       <section className="relative min-h-screen flex items-center bg-gradient-to-br from-gray-900 via-black to-green-950 pt-20 overflow-hidden">
         {/* Texture bois overlay */}
