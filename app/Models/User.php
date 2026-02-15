@@ -18,7 +18,10 @@ class User extends Authenticatable
   use HasRoles;
   /** @use HasFactory<\Database\Factories\UserFactory> */
   use HasFactory, Notifiable, TwoFactorAuthenticatable;
-
+  public function canAccessFilament(): bool
+  {
+    return $this->is_admin;
+  }
   /**
    * The attributes that are mass assignable.
    *
@@ -56,9 +59,12 @@ class User extends Authenticatable
     ];
   }
 
+
+
   public function canAccessPanel(Panel $panel): bool
   {
     return $this->hasRole('admin');
+    // return $this->is_admin;
   }
 
   public function articles()
