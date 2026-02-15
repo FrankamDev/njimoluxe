@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'; // Assure-toi d'install
 import NavBar from '../../components/NavBar';
 
 export default function HomeHero() {
+  const { auth } = usePage().props as any;
   const fadeIn = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
@@ -16,7 +17,7 @@ export default function HomeHero() {
   return (
     <>
       <Head title="Acceuil Ndjimolux – Menuiserie sur mesure à Yaoundé" />
-      <NavBar />
+      {/* <NavBar key={auth?.user?.id ?? 'guest'} /> */}
       <section className="relative min-h-screen flex items-center bg-gradient-to-br from-gray-900 via-black to-green-950 pt-20 overflow-hidden">
         {/* Texture bois overlay */}
         <div className="absolute inset-0 opacity-20 bg-[url('/images/wood-texture.jpg')] bg-cover bg-center mix-blend-multiply pointer-events-none"></div>

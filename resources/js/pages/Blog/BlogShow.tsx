@@ -455,7 +455,7 @@
 import { Head, Link } from '@inertiajs/react';
 import { useEffect, useState, useRef } from 'react';
 import NavBar from '../components/NavBar';
-// import './blog.css';
+import './blog.css';
 
 type TocItem = { id: string; text: string; level: number };
 

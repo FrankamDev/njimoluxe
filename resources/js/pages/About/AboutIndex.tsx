@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import NavBar from '../components/NavBar';
 
 
-export default function About() {
+export default function AboutIndex() {
   const fadeInUp = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: 'easeOut' } },
@@ -15,8 +15,8 @@ export default function About() {
 
   return (
     <>
+      <NavBar />
       <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 bg-gradient-to-br from-gray-950 via-black to-emerald-950/60 overflow-hidden">
-        <NavBar />
         <div className="absolute inset-0 opacity-[0.08] bg-[url('/images/wood-dark-texture.jpg')] bg-cover mix-blend-overlay pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
@@ -176,7 +176,7 @@ export default function About() {
             className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {[
-              { name: "Joseph M.", role: "Fondateur & Chef d’atelier", photo: "" },
+              { name: "Kamgang Frank", role: "Fondateur & Chef d’atelier", photo: "" },
               { name: "Marie-Luce K.", role: "Designer & conceptrice", photo: "" },
               { name: "Paul-Eric T.", role: "Spécialiste finitions", photo: "" },
               { name: "Esther D.", role: "Responsable projets clients", photo: "" },
@@ -226,7 +226,7 @@ export default function About() {
 
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link
-              href="/devis"
+              href="/contact"
               className="inline-flex px-10 py-5 bg-white text-emerald-950 hover:bg-gray-100 font-bold rounded-full transition-all duration-300 hover:scale-[1.03] shadow-xl"
             >
               Demander un devis

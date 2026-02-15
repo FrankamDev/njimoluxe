@@ -1,7 +1,6 @@
 /* ==========================================================================
    BASE & RESET
    ========================================================================== */
-
 *,
 *::before,
 *::after {
@@ -10,8 +9,7 @@
   padding: 0;
 }
 
-html,
-body {
+html, body {
   height: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -28,62 +26,49 @@ body {
 /* ==========================================================================
    VARIABLES GLOBALES – Palette luxe
    ========================================================================== */
-
 :root {
   --color-bg: #0a0f1a;
   --color-bg-soft: #111827;
   --color-text: #e2e8f0;
   --color-text-soft: #cbd5e1;
   --color-text-muted: #94a3b8;
-  --color-accent: #10b981;           /* emerald-500 */
-  --color-accent-dark: #059669;      /* emerald-700 */
-  --color-accent-light: #34d399;     /* emerald-400 */
-  --color-accent-glow: rgba(16, 185, 129, 0.12);
+  --color-accent: #10b981;
+  --color-accent-light: #34d399;
   --color-border: #1e293b;
-  --color-border-light: #334155;
-
-  --radius-sm: 0.625rem;
-  --radius-md: 1rem;
-  --radius-lg: 1.5rem;
-
-  --shadow-sm: 0 4px 16px -4px rgba(0, 0, 0, 0.5);
-  --shadow-md: 0 12px 32px -8px rgba(0, 0, 0, 0.6);
-
-  --transition: all 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --shadow-sm: 0 2px 12px -2px rgba(0,0,0,0.5);
+  --shadow-md: 0 8px 24px -4px rgba(0,0,0,0.6);
 }
 
-/* ==========================================================================
-   RICH CONTENT – Version pro, compacte, no horizontal scroll
-   ========================================================================== */
 
 .rich-content {
   color: var(--color-text);
-  font-size: clamp(1rem, 2.1vw, 1.0625rem);
-  line-height: 1.78;
+  font-size: clamp(0.95rem, 2vw, 1rem);
+  line-height: 1.6;
   font-weight: 400;
-  letter-spacing: -0.01em;
   max-width: 100%;
-  margin: 0;
-  padding: 0 1rem;
+  margin: 0 auto;
+  padding: 0 0.75rem;
   width: 100%;
 }
 
-@media (min-width: 640px) {
+@media(min-width: 640px) {
   .rich-content {
+    padding: 0 1rem;
+    font-size: clamp(1rem, 2vw, 1.05rem);
+  }
+}
+
+@media(min-width: 1024px) {
+  .rich-content {
+    max-width: 850px;
     padding: 0 1.5rem;
-    font-size: clamp(1.0625rem, 2.3vw, 1.125rem);
   }
 }
 
-@media (min-width: 1024px) {
-  .rich-content {
-    padding: 0 2rem;
-    max-width: 920px;
-    margin: 0 auto;
-  }
-}
 
-/* Titres – plus petits, plus impactants */
 .rich-content h1,
 .rich-content h2,
 .rich-content h3,
@@ -91,58 +76,38 @@ body {
 .rich-content h5,
 .rich-content h6 {
   color: white;
-  font-weight: 800;
-  line-height: 1.15;
-  margin: 2.5rem 0 1rem;
-  scroll-margin-top: 5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 1.5rem 0 0.75rem;
+  scroll-margin-top: 4rem;
 }
 
-.rich-content h1 {
-  font-size: clamp(2.25rem, 6vw, 3.25rem);
-  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: -0.04em;
-}
-
-.rich-content h2 {
-  font-size: clamp(1.75rem, 5vw, 2.25rem);
-  position: relative;
-  display: inline-block;
-}
-
+.rich-content h1 { font-size: clamp(1.8rem, 5vw, 2.5rem); }
+.rich-content h2 { font-size: clamp(1.4rem, 4vw, 2rem); position: relative; display: inline-block; }
 .rich-content h2::after {
   content: '';
   position: absolute;
-  bottom: -0.375rem;
+  bottom: -0.25rem;
   left: 0;
-  height: 3px;
+  height: 2px;
   width: 0;
-  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
-  border-radius: 3px;
-  transition: width 0.4s ease-out;
+  background: var(--color-accent);
+  border-radius: 2px;
+  transition: width 0.3s ease;
 }
+.rich-content h2:hover::after { width: 100%; }
 
-.rich-content h2:hover::after {
-  width: 100%;
-}
+.rich-content h3 { font-size: clamp(1.2rem, 3.5vw, 1.6rem); }
+.rich-content h4 { font-size: clamp(1.1rem, 3vw, 1.3rem); }
+.rich-content h5, .rich-content h6 { font-size: clamp(1rem, 2.5vw, 1.15rem); font-weight: 600; }
 
-.rich-content h3 { font-size: clamp(1.5rem, 4vw, 1.75rem); }
-.rich-content h4 { font-size: clamp(1.3rem, 3.5vw, 1.5rem); }
-.rich-content h5,
-.rich-content h6 { font-size: clamp(1.125rem, 3vw, 1.25rem); font-weight: 700; }
-
-/* Paragraphes – aérés mais compacts */
+/* Paragraphes – plus compacts */
 .rich-content p {
-  margin: 0 0 1.25rem;
+  margin: 0 0 1rem;
   color: var(--color-text-soft);
 }
 
-.rich-content p:last-child {
-  margin-bottom: 0;
-}
-
-/* Liens – effet premium */
+/* Liens */
 .rich-content a {
   color: var(--color-accent);
   text-decoration: none;
@@ -150,160 +115,96 @@ body {
   position: relative;
   transition: color 0.2s ease;
 }
-
 .rich-content a::after {
   content: '';
   position: absolute;
   left: 0;
   bottom: -1px;
   width: 100%;
-  height: 1.5px;
+  height: 1px;
   background: var(--color-accent);
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 0.35s ease;
+  transition: transform 0.3s ease;
 }
-
 .rich-content a:hover::after,
-.rich-content a:focus::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
+.rich-content a:focus::after { transform: scaleX(1); transform-origin: left; }
+.rich-content a:hover, .rich-content a:focus { color: var(--color-accent-light); }
 
-.rich-content a:hover,
-.rich-content a:focus {
-  color: var(--color-accent-light);
-}
-
-/* Listes – compactes */
-.rich-content ul,
-.rich-content ol {
-  margin: 1.5rem 0 1.5rem 1.5rem;
-  padding-left: 0;
-}
-
+/* Listes compactes */
+.rich-content ul, .rich-content ol { margin: 1rem 0 1rem 1.25rem; padding-left: 0; }
 .rich-content ul li {
   position: relative;
-  padding-left: 1.75rem;
-  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
 }
-
 .rich-content ul li::before {
   content: "•";
   color: var(--color-accent);
   position: absolute;
   left: 0;
-  font-size: 1.4em;
+  font-size: 1.2em;
   line-height: 1;
 }
 
-/* Blockquote – luxe */
+/* Blockquote – compact */
 .rich-content blockquote {
-  margin: 2.5rem 0;
-  padding: 1.25rem 1.5rem 1.25rem 2.5rem;
-  border-left: 4px solid var(--color-accent);
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem 1rem 1.75rem;
+  border-left: 3px solid var(--color-accent);
   background: var(--color-bg-soft);
   border-radius: var(--radius-md);
   font-style: italic;
   color: var(--color-text-muted);
 }
 
-/* Code & Pre – très clean */
+/* Code & Pre */
 .rich-content code {
   font-family: 'JetBrains Mono', monospace;
   background: var(--color-bg-soft);
   color: #a5f3fc;
-  padding: 0.2em 0.45em;
-  border-radius: 0.4rem;
-  font-size: 0.92em;
+  padding: 0.15em 0.35em;
+  border-radius: 0.3rem;
+  font-size: 0.85em;
   border: 1px solid var(--color-border);
 }
-
 .rich-content pre {
-  margin: 2rem 0;
-  padding: 1.25rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
   background: var(--color-bg-soft);
   border-radius: var(--radius-md);
   overflow-x: auto;
+  font-size: 0.9em;
   border: 1px solid var(--color-border-light);
-  font-size: 0.94em;
 }
+.rich-content pre code { background: none; padding: 0; border: none; color: var(--color-text); }
 
-.rich-content pre code {
-  background: none;
-  padding: 0;
-  border: none;
-  color: var(--color-text);
-}
-
-/* Images – full bleed mobile */
+/* Images – responsive & compactes */
 .rich-content img {
   width: 100%;
   height: auto;
   border-radius: var(--radius-md);
-  margin: 2.5rem 0;
+  margin: 1.5rem 0;
   box-shadow: var(--shadow-sm);
-  transition: transform 0.45s ease;
+  transition: transform 0.35s ease;
 }
+@media(min-width: 768px) { .rich-content img { border-radius: var(--radius-lg); } }
 
-@media (min-width: 768px) {
-  .rich-content img {
-    border-radius: var(--radius-lg);
-  }
-}
-
-/* Mobile – full bleed, no horizontal scroll */
-@media (max-width: 767px) {
-  .rich-content {
-    padding: 0 1rem;
-    font-size: clamp(1rem, 3.5vw, 1.05rem);
-    line-height: 1.75;
-  }
-
-  .rich-content h1 { font-size: clamp(2rem, 8vw, 2.75rem); }
-  .rich-content h2 { font-size: clamp(1.6rem, 6.5vw, 2rem); }
-
-  .rich-content blockquote,
-  .rich-content pre,
-  .rich-content img {
-    margin-left: -1rem;
-    margin-right: -1rem;
-    border-radius: 0;
-  }
-
-  .rich-content pre {
-    padding: 1rem;
-  }
-}
-
-/* ==========================================================================
-   ACCESSIBILITÉ & PERF
-   ========================================================================== */
-
-:focus-visible {
-  outline: 3px solid var(--color-accent);
-  outline-offset: 4px;
-  border-radius: 6px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    transition: none !important;
-    animation: none !important;
-  }
+/* Mobile adjustments */
+@media(max-width: 767px) {
+  .rich-content { padding: 0 0.75rem; font-size: clamp(0.9rem, 3vw, 1rem); line-height: 1.5; }
+  .rich-content h1 { font-size: clamp(1.6rem, 6vw, 2rem); }
+  .rich-content h2 { font-size: clamp(1.3rem, 5vw, 1.6rem); }
+  .rich-content blockquote, .rich-content pre, .rich-content img { margin-left: -0.75rem; margin-right: -0.75rem; border-radius: 0; }
+  .rich-content pre { padding: 0.8rem; }
 }
 
 /* Scrollbar discrète pour pre */
-pre::-webkit-scrollbar {
-  height: 6px;
-}
-pre::-webkit-scrollbar-track {
-  background: transparent;
-}
-pre::-webkit-scrollbar-thumb {
-  background: var(--color-accent);
-  border-radius: 3px;
-}
+pre::-webkit-scrollbar { height: 5px; }
+pre::-webkit-scrollbar-track { background: transparent; }
+pre::-webkit-scrollbar-thumb { background: var(--color-accent); border-radius: 3px; }
+
+/* Rich content overrides */
 .blog-rich-content h2 { color: white; }
 .blog-rich-content h3 { color: #9ee6a0; }
 .blog-rich-content a { color: #22d3ee; text-decoration: none; }

@@ -6,8 +6,10 @@ import HomeCTA from "./components/HomeCTA";
 import HomeHero from "./components/HomeHero";
 import HomeRealisations from "./components/HomeRealisations";
 import HomeServices from "./components/HomeServices";
+// import NavBar from "../components/NavBar";
 
 export default function HomeIndex() {
+  const { auth } = usePage().props as any;
   return (
     <div>
       <Head title="Njimoluxe - Menuiserie d'Excellence à Yaoundé" />
@@ -15,6 +17,7 @@ export default function HomeIndex() {
         name="description"
         content="Njimoluxe : Spécialiste en menuiserie sur mesure à Yaoundé. Meubles, cuisines, portes, escaliers en bois noble. Qualité artisanale et finitions impeccables."
       />
+      <NavBar key={auth?.user?.id ?? 'guest'} />
 
       <HomeHero />
       <HomeServices />

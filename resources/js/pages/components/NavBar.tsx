@@ -31,7 +31,7 @@ const publicNavItems: NavItem[] = [
 
 export default function NavBar() {
 
-  const { auth } = usePage().props as { auth?: { user: AuthUser | null } | null };
+  const { auth } = usePage<{ auth: { user: AuthUser | null } }>().props;
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);

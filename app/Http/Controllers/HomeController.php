@@ -9,8 +9,6 @@ class HomeController extends Controller
 {
   public function index()
   {
-    return Inertia::render("Home/HomeIndex", [
-      'auth' => auth()->user(),
-    ]);
+    return Inertia::render("Home/HomeIndex");
   }
 }
