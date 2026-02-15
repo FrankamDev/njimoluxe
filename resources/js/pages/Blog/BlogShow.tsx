@@ -462,7 +462,7 @@ type TocItem = { id: string; text: string; level: number };
 function RichContent({ html }: { html: string }) {
   return (
     <div
-      className="blog-rich-content rich-content "
+      className="rich-text"
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );
@@ -518,7 +518,12 @@ export default function BlogShow({ article, similar, urls }) {
       document.body.style.background = '';
     };
   }, []);
-
+  useEffect(() => {
+    return () => {
+      // Reset des classes globales si besoin
+      document.body.className = '';
+    };
+  }, []);
   return (
     <>
       <Head title={article.title} />
@@ -629,9 +634,12 @@ export default function BlogShow({ article, similar, urls }) {
               )}
 
               {/* Contenu riche */}
-              <div ref={contentRef}>
-                <RichContent html={htmlContent} />
-              </div>
+              {/* <div ref={contentRef}> */}
+              <RichContent html={htmlContent} />
+              {/* <div className="rich-text" dangerouslySetInnerHTML={{ __html: article.content }} />
+
+
+              </div> */}
 
               {/* Similaires */}
               {similar?.length > 0 && (

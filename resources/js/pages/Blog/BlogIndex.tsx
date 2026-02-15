@@ -117,13 +117,13 @@ import NavBar from '../components/NavBar';
 export default function BlogIndex({ articles, urls }) {
   return (
     <>
+      <NavBar />
       <Head title="Blog - NJIMOLUXE" />
 
       <div className="min-h-screen bg-black text-white">
-        <NavBar />
         {/* Header simple et centré */}
         <header className="border-b border-green-900/30 py-16 px-5 sm:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
+          <h1 className="text-3xl  mt-22 sm:text-4xl md:text-5xl font-bold tracking-tight">
             Blog NJIMOLUXE
           </h1>
           <p className="mt-3 text-base sm:text-lg text-green-300/70 max-w-xl mx-auto">
