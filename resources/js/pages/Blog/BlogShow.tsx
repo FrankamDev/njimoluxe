@@ -529,7 +529,7 @@ export default function BlogShow({ article, similar, urls }) {
       <Head title={article.title} />
       <NavBar />
 
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen mt-12 bg-black text-white">
         <div className="flex flex-col lg:flex-row">
           {/* Sommaire desktop */}
           {toc.length > 0 && (
