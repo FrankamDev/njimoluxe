@@ -207,55 +207,66 @@ export default function NavBar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.35, ease: 'easeOut' }}
-            className="lg:hidden bg-black/95 backdrop-blur-xl border-t border-green-900/30 overflow-hidden"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-50 lg:hidden bg-neutral-950/98 backdrop-blur-md"
           >
-            <div className="px-6 py-8 space-y-7">
-              {publicNavItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="block text-xl font-medium text-gray-200 hover:text-green-400 transition-colors duration-200"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
+            <div className="px-4 py-6 space-y-6">
 
-              <div className="pt-8 border-t border-green-900/40">
+              {/* Navigation */}
+              <div className="space-y-3">
+                {publicNavItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="block text-sm font-medium text-gray-300 hover:text-green-400 transition"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+
+              <div className="border-t border-neutral-800 pt-5">
+
                 {auth?.user ? (
-                  <div className="space-y-5">
-                    <div className="flex items-center gap-4 px-4 py-4 bg-green-950/30 rounded-2xl">
-                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center text-white text-2xl font-bold shadow-md">
-                        {auth?.user.name.charAt(0).toUpperCase()}
+                  <div className="space-y-4">
+
+                    {/* User Card */}
+                    <div className="flex items-center gap-3 bg-neutral-900 p-3 rounded-xl">
+                      <div className="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center text-sm font-bold text-white">
+                        {auth.user.name.charAt(0).toUpperCase()}
                       </div>
                       <div>
-                        <p className="text-xl font-semibold text-white">{auth.user.name}</p>
-                        <p className="text-green-400/80 text-sm">Connecté</p>
+                        <p className="text-sm font-semibold text-white">
+                          {auth.user.name}
+                        </p>
+                        <p className="text-xs text-green-400">Connecté</p>
                       </div>
                     </div>
 
-                    <div className="space-y-3">
+                    {/* Links */}
+                    <div className="space-y-2 text-sm">
+
                       <Link
-                        prefetch
                         href="/dashboard"
-                        className="flex items-center gap-4 px-5 py-4 rounded-xl hover:bg-green-950/40 text-gray-200 hover:text-green-400 transition-colors text-lg font-medium"
+                        prefetch
                         onClick={() => setMobileOpen(false)}
+                        className="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-800 transition text-gray-300"
                       >
-                        <LayoutDashboard size={22} />
-                        Tableau de bord
+                        <LayoutDashboard size={16} />
+                        Dashboard
                       </Link>
 
                       <Link
-                        prefetch
                         href="/settings"
-                        className="flex items-center gap-4 px-5 py-4 rounded-xl hover:bg-green-950/40 text-gray-200 hover:text-green-400 transition-colors text-lg font-medium"
+                        prefetch
                         onClick={() => setMobileOpen(false)}
+                        className="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-800 transition text-gray-300"
                       >
-                        <Settings size={22} />
+                        <Settings size={16} />
                         Paramètres
                       </Link>
 
@@ -263,38 +274,41 @@ export default function NavBar() {
                         href="/logout"
                         method="post"
                         as="button"
-                        className="flex items-center gap-4 px-5 py-4 rounded-xl bg-red-950/40 hover:bg-red-950/60 text-red-300 transition-colors text-lg font-medium w-full"
                         onClick={() => setMobileOpen(false)}
+                        className="flex items-center gap-2 p-2 rounded-lg bg-red-900/30 hover:bg-red-900/50 text-red-400 w-full transition"
                       >
-                        <LogOut size={22} />
+                        <LogOut size={16} />
                         Déconnexion
                       </Link>
+
                     </div>
                   </div>
                 ) : (
-                  <div className="grid gap-4">
+                  <div className="space-y-3 text-sm">
                     <Link
                       href="/login"
-                      className="block text-center py-4 bg-neutral-800 hover:bg-neutral-700 text-white rounded-xl font-semibold transition-colors text-lg"
                       onClick={() => setMobileOpen(false)}
+                      className="block text-center py-2 bg-neutral-800 rounded-lg text-white font-medium hover:bg-neutral-700 transition"
                     >
-                      Se connecter
+                      Connexion
                     </Link>
 
                     <Link
                       href="/contact"
-                      className="block text-center py-4 bg-green-700 hover:bg-green-600 text-white font-semibold rounded-xl transition-all shadow-md text-lg"
                       onClick={() => setMobileOpen(false)}
+                      className="block text-center py-2 bg-green-600 rounded-lg text-white font-medium hover:bg-green-500 transition"
                     >
-                      Demander un devis gratuit
+                      Devis gratuit
                     </Link>
                   </div>
                 )}
+
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
     </motion.header>
   );
 }

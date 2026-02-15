@@ -111,6 +111,8 @@
 
 
 
+
+
 import { Head, Link } from '@inertiajs/react';
 import NavBar from '../components/NavBar';
 
