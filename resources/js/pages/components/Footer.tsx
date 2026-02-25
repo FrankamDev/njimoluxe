@@ -30,7 +30,7 @@ export default function Footer() {
 
             </Link>
             <p className="text-gray-400 leading-relaxed mb-6">
-              Menuiserie d’exception à Douala.
+              Menuiserie d’exception à Yqoundé.
               Création sur mesure, finitions soignées, bois nobles et engagement qualité depuis 2020.
             </p>
 

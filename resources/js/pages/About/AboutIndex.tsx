@@ -57,7 +57,7 @@ export default function AboutIndex() {
               </motion.h2>
 
               <motion.p variants={fadeInUp} className="text-lg text-gray-300 leading-relaxed">
-                Ndjimolux est née d’une envie simple : redonner ses lettres de noblesse au travail du bois à Douala. Fondée en 2010 par une famille d’artisans passionnés, l’entreprise a grandi autour d’un principe fondamental : chaque projet doit être une œuvre unique, réalisée avec soin et destinée à durer.
+                Ndjimolux est née d’une envie simple : redonner ses lettres de noblesse au travail du bois à Yaoundé. Fondée en 2010 par une famille d’artisans passionnés, l’entreprise a grandi autour d’un principe fondamental : chaque projet doit être une œuvre unique, réalisée avec soin et destinée à durer.
               </motion.p>
 
               <motion.p variants={fadeInUp} className="text-lg text-gray-300 leading-relaxed">

@@ -14,7 +14,7 @@ const realisations = [
     id: 2,
     img: '/r2.jpeg',
     title: "Projet Prestige",
-    description: "Salle de bain design, Douala 2023",
+    description: "Salle de bain design, Yaoundé 2023",
   },
   {
     id: 3,
