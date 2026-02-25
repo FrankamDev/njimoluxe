@@ -1,4 +1,4 @@
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import { BookOpen, Folder, LayoutGrid } from 'lucide-react';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
@@ -16,28 +16,66 @@ import { dashboard } from '@/routes';
 import type { NavItem } from '@/types';
 import AppLogo from './app-logo';
 
-const mainNavItems: NavItem[] = [
-    {
-        title: 'Dashboard',
-        href: dashboard(),
-        icon: LayoutGrid,
-    },
-];
 
 const footerNavItems: NavItem[] = [
     {
-        title: 'Repository',
-        href: 'https://github.com/laravel/react-starter-kit',
+        title: 'Acceuil',
+        href: '/',
         icon: Folder,
     },
     {
-        title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits#react',
+        title: '',
+        href: '',
         icon: BookOpen,
     },
 ];
 
 export function AppSidebar() {
+    const { auth } = usePage().props as any;
+    const isAdmin = auth.user.role === 'admin';
+
+        const mainNavItems: NavItem[] = [
+        {
+            title: 'Tableau de bord',
+            href: dashboard(),
+            icon: LayoutGrid,
+        },
+    ];
+
+    if (isAdmin) {
+        mainNavItems.push(
+            {
+                title: 'Utilisateurs',
+                href: '/users',
+                icon: LayoutGrid,
+            },
+            {
+                title: 'Demandes de devis',
+                href: '/admin/devis',
+                icon: LayoutGrid,
+            },
+            // {
+            //     title: 'Réalisations',
+            //     href: '/realisations',
+            //     icon: LayoutGrid,
+            // },
+            // {
+            //     title: 'Services',
+            //     href: '/admin/services',
+            //     icon: LayoutGrid,
+            // },
+            // {
+            //     title: 'Messages',
+            //     href: '/messages',
+            //     icon: LayoutGrid,
+            // },
+            // {
+            //     title: 'Paramètres',
+            //     href: '/settings',
+            //     icon: LayoutGrid,
+            // }
+        );
+    }
     return (
         <Sidebar collapsible="icon" variant="inset">
             <SidebarHeader>

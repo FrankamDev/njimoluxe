@@ -52,7 +52,7 @@ export default function HomeHero() {
 
               <motion.div variants={itemFadeUp}>
                 <span className="inline-block px-4 py-1.5 text-sm font-medium tracking-widest uppercase text-emerald-400/90 bg-emerald-950/40 border border-emerald-800/40 rounded-full">
-                  Artisanat d’exception depuis 2015
+                  Artisanat d’exception depuis 2020
                 </span>
               </motion.div>
 
@@ -122,7 +122,7 @@ export default function HomeHero() {
                   <span className="text-emerald-500">●</span> Bois certifié PEFC
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-emerald-500">✓</span> Fabrication française
+                  <span className="text-emerald-500">✓</span> Fabrication Cameronaise
                 </div>
               </motion.div>
             </div>

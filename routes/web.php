@@ -40,6 +40,16 @@ Route::prefix('blog')->name('blog.')->group(function () {
   Route::get('/{slug}', [BlogController::class, 'show'])->name('show');
 });
 
+
+Route::middleware(['auth', 'admin'])
+    ->prefix('/admin')
+    ->group(function () {
+        Route::get('/{any?}', function () {
+            return Inertia::render('Admin/DashboardAdmin');
+        })->where('any', '.*');
+    });
+
+
 Route::get('dashboard', function () {
   return Inertia::render('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
