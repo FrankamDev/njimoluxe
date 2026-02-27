@@ -18,7 +18,7 @@
     <meta property="og:description" content="NJIMOLUXE – Artisanat, meubles sur mesure, rénovation et design intérieur.">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:site_name" content="NJIMOLUXE">
-    <meta property="og:image" content="{{ asset('njimoluxe.png') }}">
+    <meta property="og:image" content="{{ asset('/njimoluxe.png') }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
@@ -26,10 +26,10 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ config('app.name', 'NJIMOLUXE') }}">
     <meta name="twitter:description" content="NJIMOLUXE – Artisanat, meubles sur mesure, rénovation et design intérieur.">
-    <meta name="twitter:image" content="{{ asset('njimoluxe.png') }}">
+    <meta name="twitter:image" content="{{ asset('/njimoluxe.png') }}">
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('njimoluxe.png') }}" sizes="any">
+    <link rel="icon" href="{{ asset('/njimoluxe.png') }}" sizes="any">
     <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
 
     <!-- Fonts -->
