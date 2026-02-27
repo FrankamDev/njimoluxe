@@ -46,12 +46,12 @@ export function AppSidebar() {
         mainNavItems.push(
             {
                 title: 'Utilisateurs',
-                href: '/users',
+                href: '/dashboard?tab=users',
                 icon: LayoutGrid,
             },
             {
                 title: 'Demandes de devis',
-                href: '/admin/devis',
+                href: '/dashboard?tab=devis',
                 icon: LayoutGrid,
             },
             // {

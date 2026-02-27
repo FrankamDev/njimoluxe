@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ContactController;
@@ -10,6 +11,10 @@ use App\Http\Controllers\RealisationsController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
+
+
+Route::resource('users', UserController::class)
+    ->names('admin.users');
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -41,13 +46,20 @@ Route::prefix('blog')->name('blog.')->group(function () {
 });
 
 
-Route::middleware(['auth', 'admin'])
-    ->prefix('/admin')
-    ->group(function () {
-        Route::get('/{any?}', function () {
-            return Inertia::render('Admin/DashboardAdmin');
-        })->where('any', '.*');
-    });
+// Route::middleware(['auth', 'admin'])
+//     ->prefix('/admin')
+//     ->group(function () {
+//         Route::get('/{any?}', function () {
+//             return Inertia::render('Admin/DashboardAdmin');
+//         })->where('any', '.*');
+//     });
+
+
+Route::middleware(['auth','verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        return Inertia::render('dashboard');
+    })->name('dashboard');
+});
 
 
 Route::get('dashboard', function () {

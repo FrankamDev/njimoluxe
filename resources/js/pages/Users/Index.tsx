@@ -1,11 +1,13 @@
-import AdminLayout from '../';
+import { usePage } from '@inertiajs/react';
+import React from 'react'
 
-export default function Users() {
-    return (
-        <div>
-            <h1>Gestion des utilisateurs</h1>
-        </div>
-    );
+const Index = () => {
+      const { auth } = usePage().props;
+  return (
+    <div>
+      cest {auth.user.name}  qui est en ligne
+    </div>
+  )
 }
 
-Users.layout = (page: any) => <AdminLayout children={page} />;
+export default Index

@@ -1,0 +1,1 @@
+import{c as t,j as r}from"./app-BHDU4iNp.js";/* empty css            */const i=()=>{const s=t.c(1);let e;return s[0]===Symbol.for("react.memo_cache_sentinel")?(e=r.jsx("div",{children:"users"}),s[0]=e):e=s[0],e};export{i as default};

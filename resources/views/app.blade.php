@@ -8,14 +8,12 @@
     <meta name="robots" content="index, follow">
     <meta name="author" content="Frank Kamgang | NJIMOLUXE">
 
-    <!-- Open Graph / Facebook -->
+    
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ config('app.name', 'NJIMOLUXE') }}">
     <meta property="og:description" content="NJIMOLUXE – Artisanat, meubles sur mesure, rénovation et design intérieur.">
-    <meta property="og:image" content="{{ asset('/njimoluxe.png') }}">
+    <meta property="og:image" content="/njimoluxe.png">
     <meta property="og:url" content="{{ url()->current() }}">
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ config('app.name', 'NJIMOLUXE') }}">
     <meta name="twitter:description" content="NJIMOLUXE – Artisanat, meubles sur mesure, rénovation et design intérieur.">

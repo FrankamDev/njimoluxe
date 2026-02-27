@@ -1,0 +1,1 @@
+import{c as i,j as o}from"./app-BHDU4iNp.js";/* empty css            */function c(){const t=i.c(1);let e;return t[0]===Symbol.for("react.memo_cache_sentinel")?(e=o.jsx("div",{children:"Devis"}),t[0]=e):e=t[0],e}export{c as default};
