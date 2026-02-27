@@ -1,0 +1,1 @@
+import{c as s,j as o}from"./app-DnDuTNFX.js";/* empty css            */const c=()=>{const t=s.c(1);let e;return t[0]===Symbol.for("react.memo_cache_sentinel")?(e=o.jsx("div",{children:"devisd"}),t[0]=e):e=t[0],e};export{c as default};

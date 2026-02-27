@@ -1,0 +1,1 @@
+import{c as r,b as n,j as o}from"./app-DnDuTNFX.js";/* empty css            */const u=()=>{const e=r.c(2),{auth:t}=n().props;let s;return e[0]!==t.user.name?(s=o.jsxs("div",{children:["cest ",t.user.name,"  qui est en ligne"]}),e[0]=t.user.name,e[1]=s):s=e[1],s};export{u as default};
