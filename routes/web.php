@@ -5,16 +5,18 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DevisController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RealisationsController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
 
 
-Route::resource('users', UserController::class)
-    ->names('admin.users');
+// Route::get('/users', UserController::class)
+    // ->names('admin.users');
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -22,7 +24,7 @@ Route::get('/realisations', [RealisationsController::class, 'index'])
   ->name('realisation.index');
 Route::get('/about', [AboutController::class, 'index'])
   ->name('about.index');
-Route::get('/contact', [ContactController::class, 'index'])
+Route::get('/devis', [ContactController::class, 'index'])
   ->name('contact.index');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
@@ -46,24 +48,29 @@ Route::prefix('blog')->name('blog.')->group(function () {
 });
 
 
-// Route::middleware(['auth', 'admin'])
-//     ->prefix('/admin')
-//     ->group(function () {
-//         Route::get('/{any?}', function () {
-//             return Inertia::render('Admin/DashboardAdmin');
-//         })->where('any', '.*');
-//     });
-
 
 Route::middleware(['auth','verified'])->group(function () {
+
     Route::get('/dashboard', function () {
-        return Inertia::render('dashboard');
-    })->name('dashboard');
+        return Inertia::render('Dashboard');
+    });
+
+    
+
+    Route::get('/dashboard/devis', function () {
+        return Inertia::render('Admin/Devis/DevisIndex');
+    });
+
+    Route::get('/dashboard/devis', [ContactController::class, 'index'])
+        ->name('dashboard.devis');
+      
+
+
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // Sous-sections (même composant React, mais contenu différent)
+    Route::get('/dashboard/users', [DashboardController::class, 'users'])->name('dashboard.users');
+    Route::get('/dashboard/devis', [DashboardController::class, 'devis'])->name('dashboard.devis');
 });
-
-
-Route::get('dashboard', function () {
-  return Inertia::render('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__ . '/settings.php';

@@ -3,62 +3,89 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use App\Models\Contact;
+use App\Mail\ContactMail;
+use App\Models\Devis;
+use Illuminate\Support\Facades\Mail;
 
 class DevisController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+  /**
+   * Display a listing of the resource.
+   */
+  public function index()
+  {
+        return Inertia::render("Contact/ContactIndex", );
+  }
+
+  /**
+   * Show the form for creating a new resource.
+   */
+  public function create()
+  {
+    //
+  }
+
+  /**
+   * Store a newly created resource in storage.
+   */
+  public function store(Request $request)
+  {
+    $validated = $request->validate([
+      'name' => 'required|string|max:255',
+      'email' => 'required|email|max:255',
+      'phone' => 'required|string|max:20',
+      'city' => 'nullable|string|max:255',
+      'project_type' => 'required|string|max:255',
+      'message' => 'required|string',
+      'urgent' => 'boolean',
+      'budget' => 'nullable|string|max:255',
+      'start_when'=> 'nullable|string|max:255',
+      'how_know_us'=> 'nullable|string|max:255',
+    ]);
+
+    $contact = Contact::create($validated);
+
+   
+    try {
+      \Illuminate\Support\Facades\Mail::to('njimoluxe@gmail.com')->send(new ContactMail($contact));
+    } catch (\Exception $e) {
+      // Log error or handle gracefully
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+    return redirect()->back()->with('success', 'Votre message a bien été envoyé !');
+  }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+  /**
+   * Display the specified resource.
+   */
+  public function show(string $id)
+  {
+    //
+  }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+  /**
+   * Show the form for editing the specified resource.
+   */
+  public function edit(string $id)
+  {
+    //
+  }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+  /**
+   * Update the specified resource in storage.
+   */
+  public function update(Request $request, string $id)
+  {
+    //
+  }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+  /**
+   * Remove the specified resource from storage.
+   */
+  public function destroy(string $id)
+  {
+    //
+  }
 }

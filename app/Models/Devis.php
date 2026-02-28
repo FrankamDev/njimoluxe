@@ -18,4 +18,9 @@ class Devis extends Model
     'message',
     'urgent',
   ];
-}
+protected $casts = [
+        'urgent' => 'boolean',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+  }

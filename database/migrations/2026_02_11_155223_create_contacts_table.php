@@ -18,9 +18,11 @@ return new class extends Migration
       $table->string('phone');
       $table->string('city')->nullable();
       $table->string('budget')->nullable();
+      $table->string('start_when')->nullable();
       $table->string('project_type');
-      $table->text('message');
       $table->boolean('urgent')->default(false);
+      $table->text('message');
+      $table->string('how_know_us')->nullable();
       $table->timestamps();
     });
   }

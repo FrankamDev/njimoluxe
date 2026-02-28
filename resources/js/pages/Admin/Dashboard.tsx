@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import Users from './Sections/Users';
-import Devis from '../Devis/Devis';
-// import Devis from './Sections/Devis';
+
+import Devis from "../Admin/Devis/DevisIndex";
+import Users from "../Admin/Users/IndexIndex";
+import UsersIndex from './Users/UsersIndex.tsx';
+import DevisIndex from '../Admin/Devis/DevisIndex';
 
 export default function Dashboard() {
 
@@ -23,8 +25,8 @@ export default function Dashboard() {
 
             {/* Contenu dynamique */}
             <div>
-                {section === 'users' && <Users />}
-                {section === 'devis' && <Devis />}
+                {section === 'users' && <UsersIndex />}
+                {section === 'devis' && <DevisIndex />}
             </div>
 
         </div>

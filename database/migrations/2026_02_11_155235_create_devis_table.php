@@ -13,7 +13,17 @@ return new class extends Migration
     {
         Schema::create('devis', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+      $table->string('name');
+      $table->string('email');
+      $table->string('phone');
+      $table->string('city')->nullable();
+      $table->string('budget')->nullable();
+      $table->string('start_when')->nullable();
+      $table->string('project_type');
+      $table->boolean('urgent')->default(false);
+      $table->text('message');
+      $table->string('how_know_us')->nullable();
+      $table->timestamps();
         });
     }
 

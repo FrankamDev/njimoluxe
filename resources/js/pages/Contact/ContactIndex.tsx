@@ -17,6 +17,7 @@ export default function ContactIndex() {
     how_know_us: '',
     message: '',
     urgent: false,
+    debut: ''
   });
 
   const [success, setSuccess] = useState(false);
@@ -104,7 +105,7 @@ export default function ContactIndex() {
                     <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                       <div>
                         <label className="block text-sm font-medium text-gray-300 mb-1.5">
-                          Nom complet <span className="text-red-500">*</span>
+                          Nom complet <span className="text-green-500">*</span>
                         </label>
                         <input
                           type="text"
@@ -119,7 +120,7 @@ export default function ContactIndex() {
 
                       <div>
                         <label className="block text-sm font-medium text-gray-300 mb-1.5">
-                          Téléphone <span className="text-red-500">*</span>
+                          Téléphone <span className="text-green-500">*</span>
                         </label>
                         <input
                           type="tel"
@@ -135,7 +136,7 @@ export default function ContactIndex() {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-300 mb-1.5">
-                        Email <span className="text-red-500">*</span>
+                        Email <span className="text-green-500">*</span>
                       </label>
                       <input
                         type="email"
@@ -150,7 +151,7 @@ export default function ContactIndex() {
 
                     <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-1.5">Ville / Quartier</label>
+                        <label className="block text-sm font-medium text-gray-300 mb-1.5">Ville</label>
                         <input
                           type="text"
                           value={data.city}
@@ -162,7 +163,7 @@ export default function ContactIndex() {
 
                       <div>
                         <label className="block text-sm font-medium text-gray-300 mb-1.5">
-                          Type de projet <span className="text-red-500">*</span>
+                          Type de projet <span className="text-green-500">*</span>
                         </label>
                         <select
                           value={data.project_type}
@@ -203,7 +204,8 @@ export default function ContactIndex() {
                         <label className="block text-sm font-medium text-gray-300 mb-1.5">
                           Début du projet
                         </label>
-                        <select
+                          <select
+                            name="debut"
                           value={data.start_when}
                           onChange={(e) => setData('start_when', e.target.value)}
                           className="w-full px-4 py-3 bg-gray-800/80 border border-gray-700/60 rounded-lg text-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/50 outline-none transition-all duration-300 shadow-sm appearance-none"
@@ -235,7 +237,7 @@ export default function ContactIndex() {
                         <option value="autre">Autre</option>
                       </select>
                     </div>
-
+                     
                     <div>
                       <label className="block text-sm font-medium text-gray-300 mb-1.5">
                         Détails de votre projet <span className="text-red-500">*</span>
@@ -255,6 +257,7 @@ export default function ContactIndex() {
                       <input
                         type="checkbox"
                         id="urgent"
+                        name="urgence"
                         checked={data.urgent}
                         onChange={(e) => setData('urgent', e.target.checked)}
                         className="w-5 h-5 text-emerald-600 bg-gray-800 border-gray-700 rounded focus:ring-emerald-500 focus:ring-offset-gray-900"

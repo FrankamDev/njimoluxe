@@ -5,7 +5,7 @@ const Index = () => {
       const { auth } = usePage().props;
   return (
     <div>
-      cest {auth.user.name}  qui est en ligne
+      Users
     </div>
   )
 }

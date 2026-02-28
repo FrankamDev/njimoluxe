@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Contact;
 use App\Mail\ContactMail;
+use App\Models\Devis;
 use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
@@ -15,6 +16,7 @@ class ContactController extends Controller
    */
   public function index()
   {
+ 
     return Inertia::render("Contact/ContactIndex");
   }
 
@@ -39,11 +41,14 @@ class ContactController extends Controller
       'project_type' => 'required|string|max:255',
       'message' => 'required|string',
       'urgent' => 'boolean',
+      'budget' => 'nullable|string|max:255',
+      'start_when'=> 'nullable|string|max:255',
+      'how_know_us'=> 'nullable|string|max:255',
     ]);
 
     $contact = Contact::create($validated);
 
-    // Send email to admin (configure recipient in .env later)
+   
     try {
       \Illuminate\Support\Facades\Mail::to('njimoluxe@gmail.com')->send(new ContactMail($contact));
     } catch (\Exception $e) {

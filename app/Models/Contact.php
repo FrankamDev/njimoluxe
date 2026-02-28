@@ -14,5 +14,8 @@ class Contact extends Model
     'project_type',
     'message',
     'urgent',
+    'budget',
+    'start_when',
+    'how_know_us'
   ];
 }

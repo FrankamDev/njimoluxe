@@ -83,7 +83,8 @@ export default function HomeHero() {
                 className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center lg:justify-start pt-4"
               >
                 <Link
-                  href="/contact"
+                  prefetch
+                  href="/devis"
                   className="
                     inline-flex items-center justify-center
                     px-8 py-4 text-base md:text-lg font-semibold

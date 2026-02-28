@@ -1,5 +1,5 @@
 import { Link, usePage } from '@inertiajs/react';
-import { BookOpen, Folder, LayoutGrid } from 'lucide-react';
+import { BookOpen, FileText, Folder, Home, LayoutGrid, MessageSquare, Settings, Users } from 'lucide-react';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
@@ -12,7 +12,7 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { dashboard } from '@/routes';
+// import { dashboard } from '@/routes';
 import type { NavItem } from '@/types';
 import AppLogo from './app-logo';
 
@@ -21,13 +21,9 @@ const footerNavItems: NavItem[] = [
     {
         title: 'Acceuil',
         href: '/',
-        icon: Folder,
+        icon: Home,
     },
-    {
-        title: '',
-        href: '',
-        icon: BookOpen,
-    },
+   
 ];
 
 export function AppSidebar() {
@@ -35,54 +31,35 @@ export function AppSidebar() {
     const isAdmin = auth.user.role === 'admin';
 
         const mainNavItems: NavItem[] = [
-        {
-            title: 'Tableau de bord',
-            href: dashboard(),
-            icon: LayoutGrid,
-        },
-    ];
+    {
+        title: 'Tableau de bord',
+        href: '/dashboard',
+        icon: LayoutGrid,
+            },
+       
+];
 
-    if (isAdmin) {
-        mainNavItems.push(
-            {
-                title: 'Utilisateurs',
-                href: '/dashboard?tab=users',
-                icon: LayoutGrid,
-            },
-            {
-                title: 'Demandes de devis',
-                href: '/dashboard?tab=devis',
-                icon: LayoutGrid,
-            },
-            // {
-            //     title: 'Réalisations',
-            //     href: '/realisations',
-            //     icon: LayoutGrid,
-            // },
-            // {
-            //     title: 'Services',
-            //     href: '/admin/services',
-            //     icon: LayoutGrid,
-            // },
-            // {
-            //     title: 'Messages',
-            //     href: '/messages',
-            //     icon: LayoutGrid,
-            // },
-            // {
-            //     title: 'Paramètres',
-            //     href: '/settings',
-            //     icon: LayoutGrid,
-            // }
-        );
-    }
+mainNavItems.push(
+    {
+        title: 'Utilisateurs',
+        href: '/dashboard/users',          // ← important
+        icon: Users,                        // ← meilleure icône que LayoutGrid
+    },
+    {
+        title: 'Demandes de devis',
+        href: '/dashboard/devis',           // ← important
+        icon: FileText,                     // ← ou FileSignature, etc.
+    },
+);
+//    if (isAdmin) {
+// }
     return (
         <Sidebar collapsible="icon" variant="inset">
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton size="lg" asChild>
-                            <Link href={dashboard()} prefetch>
+                            <Link href='/dashboard' prefetch>
                                 <AppLogo />
                             </Link>
                         </SidebarMenuButton>
