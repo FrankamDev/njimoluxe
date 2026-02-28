@@ -85,7 +85,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     
     Route::get('/dashboard/devis', [DashboardController::class, 'devis'])->name('dashboard.devis');
-
+ Route::get('/dashboard/users', [UserController::class, 'index'])->name('dashboard.devis');
     
 });
 
