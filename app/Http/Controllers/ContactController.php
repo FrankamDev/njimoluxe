@@ -19,6 +19,7 @@ class ContactController extends Controller
  
     return Inertia::render("Contact/ContactIndex");
   }
+ 
 
   /**
    * Show the form for creating a new resource.
@@ -46,11 +47,11 @@ class ContactController extends Controller
       'how_know_us'=> 'nullable|string|max:255',
     ]);
 
-    $contact = Contact::create($validated);
+    $devis = Devis::create($validated);
 
    
     try {
-      \Illuminate\Support\Facades\Mail::to('njimoluxe@gmail.com')->send(new ContactMail($contact));
+      \Illuminate\Support\Facades\Mail::to('njimoluxe@gmail.com')->send(new ContactMail($devis));
     } catch (\Exception $e) {
       // Log error or handle gracefully
     }

@@ -49,28 +49,45 @@ Route::prefix('blog')->name('blog.')->group(function () {
 
 
 
-Route::middleware(['auth','verified'])->group(function () {
+// Route::middleware(['auth','verified'])->group(function () {
 
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    });
+//     Route::get('/dashboard', function () {
+//         return Inertia::render('Dashboard');
+//     });
 
     
 
-    Route::get('/dashboard/devis', function () {
-        return Inertia::render('Admin/Devis/DevisIndex');
-    });
+//     Route::get('/dashboard/devis', function () {
+//         return Inertia::render('Admin/Devis/DevisIndex');
+//     });
 
-    Route::get('/dashboard/devis', [ContactController::class, 'index'])
-        ->name('dashboard.devis');
+//     Route::get('/dashboard/devis', [ContactController::class, 'index'])
+//         ->name('dashboard.devis');
       
+//  Route::get('/dashboard/devis', [DevisController::class, 'devis'])
+//         ->name('dashboard.devis');
+
+//         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+//     // Sous-sections (même composant React, mais contenu différent)
+//     Route::get('/dashboard/users', [DashboardController::class, 'users'])->name('dashboard.users');
+//     Route::get('/dashboard/devis', [DashboardController::class, 'devis'])->name('dashboard.devis');
+// });
 
 
-        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    // Sous-sections (même composant React, mais contenu différent)
+Route::middleware(['auth', 'verified'])->group(function () {
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+
     Route::get('/dashboard/users', [DashboardController::class, 'users'])->name('dashboard.users');
+
+    
     Route::get('/dashboard/devis', [DashboardController::class, 'devis'])->name('dashboard.devis');
+
+    
 });
+
 
 require __DIR__ . '/settings.php';

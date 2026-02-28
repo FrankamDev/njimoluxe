@@ -1,4 +1,4 @@
-// resources/js/Pages/Dashboard.tsx
+
 import { Head, usePage } from '@inertiajs/react';
 import AppLayout from '@/layouts/app-layout';
 import type { BreadcrumbItem } from '@/types';
@@ -9,18 +9,18 @@ import UsersIndex from './Admin/Users/UsersIndex';
 
 
 export default function Dashboard() {
-    const { devis } = usePage().props as { devis: Devis[] };
+   
 
-    const { section = 'home' } = usePage().props as { section?: string };
+    const { section = 'home', devis } = usePage().props as { section?: string };
 
     const breadcrumbs: BreadcrumbItem[] = [
         { title: 'Dashboard', href: '/dashboard' },
     ];
 
     if (section === 'users') {
-        breadcrumbs.push({ title: 'Utilisateurs', href: '#' });
+        breadcrumbs.push({ title: 'Utilisateurs', href: '/dashboard/users' });
     } else if (section === 'devis') {
-        breadcrumbs.push({ title: 'Demandes de devis', href: '#' });
+        breadcrumbs.push({ title: 'Demandes de devis', href: '/dashboard/devis' });
     }
 
     return (
@@ -47,20 +47,20 @@ export default function Dashboard() {
                 {section === 'devis' && (
                     <>
                         <h2 className="text-2xl font-bold text-zinc-800">Tous les devis</h2>
-                        {/* <DevisIndex devis={devis}/> */}
-ok
+                        <DevisIndex />
 
-                     
-                        
+    
+  
+ 
                     </>
                 )}
 
-                {/* Fallback si section inconnue */}
-                {!['home', 'users', 'devis'].includes(section) && (
+                
+                {/* {!['home', 'users', 'devis'].includes(section) && (
                     <div className="text-center py-12 text-zinc-500">
                         Section non reconnue
                     </div>
-                )}
+                )} */}
             </div>
         </AppLayout>
     );

@@ -18,6 +18,13 @@ class DevisController extends Controller
   {
         return Inertia::render("Contact/ContactIndex", );
   }
+   public function devis()
+  {
+        $devis = Devis::all();
+        return Inertia::render("Dashboard", [
+'devis' => $devis,
+        ]);
+  }
 
   /**
    * Show the form for creating a new resource.
@@ -45,7 +52,7 @@ class DevisController extends Controller
       'how_know_us'=> 'nullable|string|max:255',
     ]);
 
-    $contact = Contact::create($validated);
+    $contact = Devis::create($validated);
 
    
     try {
