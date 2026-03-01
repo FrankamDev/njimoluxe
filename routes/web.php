@@ -81,11 +81,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 
-    Route::get('/dashboard/users', [DashboardController::class, 'users'])->name('dashboard.users');
+    // Route::get('/dashboard/users', [DashboardController::class, 'users'])->name('dashboard.users');
+
+    Route::resource('/dashboard/users', DashboardController::class);
 
     
     Route::get('/dashboard/devis', [DashboardController::class, 'devis'])->name('dashboard.devis');
- Route::get('/dashboard/users', [UserController::class, 'index'])->name('dashboard.devis');
+//  Route::get('/dashboard/users', [DashboardController::class, 'store'])->name('dashboard.devis');
     
 });
 

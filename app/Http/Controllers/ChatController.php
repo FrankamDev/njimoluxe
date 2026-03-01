@@ -11,10 +11,13 @@ class ChatController extends Controller
   {
     $messages = $request->input('messages', []);
 
-    // Ajoute un system prompt personnalisé pour NJIMOLUXE
+    
     $systemPrompt = [
       'role' => 'system',
-      'content' => "Tu es un assistant commercial de NJIMOLUXE, marque de décoration et ameublement haut de gamme au Cameroun. Sois chaleureux, professionnel, concis, orienté vente et positif. Réponds toujours en français. Propose des solutions luxe et personnalisées quand c'est pertinent."
+      'content' => "Tu es un assistant commercial de NJIMOLUXE, marque de décoration et
+       ameublement haut de gamme au Cameroun. Sois chaleureux, professionnel, concis,
+        orienté vente et positif. Réponds toujours en français.
+         Propose des solutions luxe et personnalisées quand c'est pertinent."
     ];
 
     try {
@@ -22,7 +25,7 @@ class ChatController extends Controller
         'Authorization' => 'Bearer ' . config('services.groq.api_key'),
         'Content-Type' => 'application/json',
       ])->post('https://api.groq.com/openai/v1/chat/completions', [
-        'model' => 'mixtral-8x7b-32768', // gratuit et rapide sur Groq
+        'model' => 'mixtral-8x7b-32768',
         'messages' => [$systemPrompt, ...$messages],
         'temperature' => 0.7,
         'max_tokens' => 500,

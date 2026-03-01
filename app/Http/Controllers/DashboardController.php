@@ -42,11 +42,28 @@ class DashboardController extends Controller
     {
         return Inertia::render('Dashboard', [
             'section' => 'users',
-            'users' => User::paginate(15),  
+            'users' => User::all(),  
             'bb' => 'je me cocentre sur ma vie, juste 5ans',
         ]);
     }
+public function store(Request $request)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|unique:users',
+        'password' => 'required|min:6',
+        'role' => 'required|in:admin,user',
+    ]);
 
+    User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => bcrypt($request->password),
+        'role' => $request->role,
+    ]);
+
+    return redirect()->route('users.index');
+}
 
   public function devis()
     {

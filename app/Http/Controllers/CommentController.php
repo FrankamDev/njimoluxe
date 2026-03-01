@@ -23,7 +23,7 @@ class CommentController extends Controller
 
   public function destroy(Comment $comment)
   {
-    // Ensure user owns the comment
+    
     if ($comment->user_id !== auth()->id()) {
       abort(403);
     }
